@@ -1,6 +1,5 @@
-let a: any = 0;
+let count = 10
+let message = 'Your count'
+let result = `${message} is ${count}`
 
-// any로 인해 어떤 타입이든 가능
-a = 'hello'
-a = false
-a = {}
+console.log(result)
