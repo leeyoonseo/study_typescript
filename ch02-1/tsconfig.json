@@ -1,34 +1,43 @@
 {
   // @see https://typescript-kr.github.io/pages/compiler-options.html
   "compilerOptions": {
-    // 호환되는 JavaScript 언어 버전 설정
-    "target": "es5",         
-    
-    // 모듈 코드 지정
+    // * 브라우저, 노드제이에서 동작을 위한 모듈 방식
+    // commonjs - nodejs
+    // amd - browser
     "module": "commonjs",         
-    
-    // 모듈 해석, 컴파일러 import가 무엇을 참조하는지 알아내기 위해 사용하는 프로세스
+
+    // * 모듈방식에 따른 키 값
+    // modules: commonjs -> node
+    // modules: amd -> classic
     "moduleResolution": "node",        
     
-    // 기본 디렉토리 지정
+    // * 트랜스파일 할 대상 자바스크립트 버전
+    "target": "es5",         
+    
+    // * 현재 디렉터리
     "baseUrl": ".",
-    
-    // baseUrl을 기준으로 모듈 경로를 매핑할 위치
-    "paths": { "*": ["node_modules/*"] }, 
-    
-    // 내보낸 JavaScript 파일에 대한 소스 맵 파일 생성
-    "sourceMap": true,
 
-    // 내보낸 모든 파일의 출력 폴더 지정
+    // * baseUrl 기준으로 빌드되어질 하위 디렉터리 이름
     "outDir": "dist",      
+    
+    // * import문에서 from 부분을 해석할 때 찾아야하는 디렉터리
+    "paths": { "*": ["node_modules/*"] }, 
 
-    // ES5 또는 ES3를 대상으로 할 때 for..of, 스프레드와 구조분해할당에서 이터러블 지원
-    "downlevelIteration": true,   
-
-    // 런타임 바벨 생태계 호환성을 위한 __importStar와 __importDefault 헬퍼를 내보내고 타입 시스템 호환성을 위해 활성화
+    // * 오픈 소스 라이브러리 중에서 웹 브라우저 전용(amd 방식)이 있는데,
+    // 이때 module: commonjs일 경우 타입스크립트 코드에 혼란이 생긴다.
+    // amd 패키지가 동작하기 위해서는 true로 설정되어야한다.
     "esModuleInterop": true,        
 
-    // any 타입으로 암시한 표현식과 선언에 오류를 발생에 대한 활성화 여부
+    // * 트랜스파일된 js 파일에서 타입스크립트 코드 위치를 알려준다.
+    // 디버깅 시 필요
+    "sourceMap": true,
+
+    // * ES5 또는 ES3를 대상으로 할 때 for..of, 스프레드와 구조분해할당에서 이터러블 지원
+    // 즉, generator를 사용하려면 true로 설정되어야한다.
+    "downlevelIteration": true,   
+
+    // * any 타입으로 암시한 표현식과 선언에 오류를 발생에 대한 활성화 여부
+    // false일 경우 문제로 인식하지않는다. (실제 개발시에는 true로 하는것이 좋겠다.)
     "noImplicitAny": false,   
   },
 
