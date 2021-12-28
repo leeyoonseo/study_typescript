@@ -1,10 +1,3 @@
-// 구조화
-export interface IPerson {
+export interface INameable {
   name: string
-  age: number
-}
-
-export interface ICompany {
-  name: string
-  age: number
 }
