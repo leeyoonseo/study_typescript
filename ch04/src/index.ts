@@ -1,15 +1,11 @@
-// * type 키워드로 타입 별칭 만들기
-type stringNumberFunc = (string, number) => void
-
-let f: stringNumberFunc = function (a: string, b: number): void {
-  // ....
+interface INameable {
+  name: string
 }
 
-let g: stringNumberFunc = function (c: string, d: number): void {
-  // ....
+function getName(o: INameable) {
+  return o !== undefined ? o.name : 'unknow name'
 }
 
-// * 오류나는 상황 확인
-let h: stringNumberFunc = function () {
-  // ...
-}
+let n = getName(undefined)
+console.log(n)
+console.log(getName({ name: 'Jack' }))
