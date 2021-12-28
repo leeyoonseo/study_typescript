@@ -1,17 +1,10 @@
-import { IPerson, ICompany } from './interface'
+let address: any = {
+  country: 'Korea',
+  city: 'Seoul',
+  address1: 'Gangnam-gu',
+  address2: 'Sinsa-dong 123-456',
+  address3: '789 street, 2 Floor ABC building'
+}
 
-let jack: IPerson = { name: 'Jack', age: 32 }
-let jane: IPerson = { name: 'jane', age: 22 }
-
-let apple: ICompany = { name: 'apple', age: 43 }
-let ms: ICompany = { name: 'ms', age: 44 }
-
-console.log(jack)
-console.log(ms)
-
-// 비구조화
-let name = jack.name
-let age = jack.age
-
-// 비구조화 할당
-let { name, age } = jack
+const { country, city, ...detail } = address
+console.log(detail)
