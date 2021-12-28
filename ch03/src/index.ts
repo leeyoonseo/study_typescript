@@ -8,3 +8,10 @@ let ms: ICompany = { name: 'ms', age: 44 }
 
 console.log(jack)
 console.log(ms)
+
+// 비구조화
+let name = jack.name
+let age = jack.age
+
+// 비구조화 할당
+let { name, age } = jack
