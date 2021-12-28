@@ -1,16 +1,9 @@
-// * 기본 함수 구성 형태
-function Person(name: string, age: number): void {
+// * 함수의 타입 = 함수 시그니처(function signature)
+// * 형태
+// (매개변수1 타입, 매개변수2 타입[, ...]) => 반환값 타입
+
+let printMe: (string, number) => void = function (name: string, age: number): void {
   // ....
 }
 
-// * 예시
-function add(a: number, b: number): number {
-  return a + b
-}
-
-let result = add(1,2)
-
-// * 반환 값이 없을때
-function printMe(name: string, age: number): void {
-  console.log(`name: ${name}, age: ${age}`)
-}
+// * 매개변수와 반환값이 없을 경우 () => void
