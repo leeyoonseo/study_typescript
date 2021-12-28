@@ -1,8 +1,9 @@
-type Person = { name: string, age: number }
+// js
+const makeObject = (key, value) => ({ [key]: value })
 
-// 매개변수 비구조화 할당
-const printPerson = ({name, age}: Person): void => {
-  console.log(`name: ${name}, age: ${age}`)
+// ts
+type KeyValueType = {
+  [key: string]: string
 }
 
-printPerson({ name: 'Jack', age: 33 })
+const makeObjectTs = (key: string, value: string): KeyValueType => ({ [key]: value })
