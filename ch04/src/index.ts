@@ -1,11 +1,8 @@
-interface INameable {
-  name: string
+function fn(arg1: string, arg?: number): void {
+  // ... 
 }
 
-function getName(o: INameable) {
-  return o !== undefined ? o.name : 'unknow name'
-}
+fn('hello', 1)
+fn('hello') // arg가 선택적 매개변수
 
-let n = getName(undefined)
-console.log(n)
-console.log(getName({ name: 'Jack' }))
+type OptionalArgFunc = (string, number?) => void
