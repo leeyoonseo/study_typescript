@@ -1,7 +1,9 @@
-const init = (callback: () => void): void => {
-  console.log('default initialzation finished')
-  callback()
-  console.log('all initialization finished.')
+const calc = (value: number, cb: (number) => void): void => {
+  let add = (a, b) => a + b
+  function multiply(a,b) { return a * b }
+
+  let result = multiply(add(1,2), value)
+  cb(result)
 }
 
-init(() => console.log('custom initialization finished.'))
+calc(30, (result: number) => console.log(`result is ${result}`))
