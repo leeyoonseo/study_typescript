@@ -1,17 +1,14 @@
-class A {
-  value: number = 1
-  method: () => void = function(): void {
-    console.log(`value: ${this.value}`) // 1
+class C {
+  static whoAreYou(): string {
+    return `I'm class C`
   }
 }
 
-// A의 개선
-class B  {
-  constructor(public value: number = 1) {}
-  method(): void {
-    console.log(`value: ${this.value}`)
+class D {
+  static whoAreYou(): string {
+    return `I'm class D`
   }
 }
 
-let b: B = new B(2)
-b.method() // value: 2
+console.log(C.whoAreYou()) // I'm class C
+console.log(D.whoAreYou()) // I'm class D
