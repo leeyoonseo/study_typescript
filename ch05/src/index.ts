@@ -1,21 +1,9 @@
-// const arrayLength = (array: T[]): number => array.length
-
-const arrayLength = <T>(array: T[]): number => array.length
-const isEmpty = <T>(array: T[]): boolean => arrayLength<T>(array) === 0
-
-let numArray: number[] = [1,2,3]
-let strArray: string[] = ['a', 'b']
-
-type IPerson = { name: string, age?: number }
-let personArray: IPerson[] = [
-  { name: 'Jack' },
-  { name: 'Jane', age: 33 }
-]
-
+const identity = <T>(n: T): T => n
 console.log(
-  arrayLength(numArray),
-  arrayLength(strArray),
-  arrayLength(personArray),
-  isEmpty([]),
-  isEmpty([1])
+  identity<boolean>(true),
+  identity(true),
 )
+
+// 제네릭 형태로 구현된 함수는 원칙적으로 다음과 같은 형태로 명시
+// 함수이름<타입변수>(매개변수)
+// <타입변수>가 생략된 경우 타입 추론을 통해 생략된 타입을 찾아낸다
