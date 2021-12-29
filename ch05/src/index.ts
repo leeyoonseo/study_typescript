@@ -14,22 +14,19 @@ const fold = <T>(array: T[], callback: (result: T, val: T) => T, initValue: T) =
   return result
 }
 
-const filter = <T>(array: T[], callback: (value: T, index?: number) => boolean): T[] => {
-  let result: T[] = []
-  for (let index: number = 0; index < array.length; ++index) {
+// 입력타입 T가 출력타입 Q로 바뀔수 있다는 전제로 구현
+const map = <T, Q>(array: T[], callback: (value: T, index?: number) => Q): Q[] => {
+  let result: Q[] = []
+  for (let index = 0; index < array.length; ++index) {
     const value = array[index]
-    if (callback(value, index)) {
-      result = [...result, value]
-    }
-
-    return result
+    result = [...result, callback(value, index)]
   }
+  return result
 }
 
 let numbers: number[] = range(1, 100 + 1)
-const isOdd = (n: number): boolean => n % 2 != 0
 let result = fold(
-  filter(numbers, isOdd),
+  map(numbers, value => value * value),
   (result, value) => result + value, 0
 )
 
